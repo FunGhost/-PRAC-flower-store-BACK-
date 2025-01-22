@@ -2,9 +2,9 @@ import {
   CallHandler,
   ExecutionContext,
   Injectable,
-  NestInterceptor,
-} from '@nestjs/common';
-import { Observable, tap } from 'rxjs';
+  NestInterceptor
+} from "@nestjs/common";
+import { Observable, tap } from "rxjs";
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -12,7 +12,7 @@ export class LoggingInterceptor implements NestInterceptor {
     context: ExecutionContext,
     next: CallHandler<any>,
   ): Observable<any> | Promise<Observable<any>> {
-    console.log('Before...');
-    return next.handle().pipe(tap(() => console.log('After...')));
+    console.log("Before...");
+    return next.handle().pipe(tap(() => console.log("After...")));
   }
 }

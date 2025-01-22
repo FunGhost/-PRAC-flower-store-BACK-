@@ -5,7 +5,7 @@ import {
   Transport,
 } from '@nestjs/microservices';
 
-@Injectable()
+@Injectable
 export class AppService {
   private client: ClientProxy;
 
@@ -17,9 +17,5 @@ export class AppService {
         port: 8877,
       },
     });
-  }
-
-  sendMessage(message: string) {
-    this.client.emit('message', message);
   }
 }
